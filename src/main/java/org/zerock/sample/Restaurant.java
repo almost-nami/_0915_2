@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 @Data
 public class Restaurant {
 
+    // @Setter : 자동으로 setChef() 생성
     @Setter(onMethod_ = @Autowired)
     private Chef chef;
 }

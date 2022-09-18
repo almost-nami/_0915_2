@@ -29,6 +29,7 @@
 
     <mybatis-spring:scan base-package="org.zerock.mapper"/>
 
+    <!-- Bean이 되는 대상을 찾는 경로 -->
     <context:component-scan base-package="org.zerock.sample">
     </context:component-scan>
 </beans>
