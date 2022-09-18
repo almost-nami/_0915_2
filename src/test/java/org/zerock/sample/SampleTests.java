@@ -10,6 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import static org.junit.Assert.assertNotNull;
 
+// Restaurant에 대한 테스트 -> setter 주입
 /*
     1.Lombok 관련
         -> @Setter, @Data, @Log4j

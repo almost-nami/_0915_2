@@ -5,6 +5,13 @@
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd">
 
+    <!-- 이미 만들어진 클래스들을 이용해서 스프링의 Bean으로 등록할 때 사용 -->
+    <!--
+        DataSource : Java에서 사용하는 커넥션 풀
+            -> 인터페이스
+            -> 미리 연결을 맺어두고 반환하는 구조를 이용하여 성능을 향상시킬 목적으로 사용
+        HikariCP : 커넥션 풀
+    -->
     <!-- Root Context: defines shared resources visible to all other web components -->
     <bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
         <!--
@@ -23,10 +30,21 @@
         <constructor-arg ref="hikariConfig"/>
     </bean>
 
+    <!--
+        SQLSession, SQLSessionFactory
+            -> MyBatis에서 가장 핵심적인 객체
+        SQLSessionFactory
+            -> SQLSession을 만들어 내는 존재
+            -> SQLSession을 통해서 Connection을 생성 / 원하는 SQL을 전달하고 결과를 리턴받음
+    -->
+    <!--
+        스프링에 SqlSessionFactory를 등록하는 작업은 SqlSessionFactoryBean을 이용
+    -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
     </bean>
 
+    <!-- MyBatis가 동작할 때 Mapper를 인식할 수 있도록 하는 설정 -->
     <mybatis-spring:scan base-package="org.zerock.mapper"/>
 
     <!-- Bean이 되는 대상을 찾는 경로 -->
