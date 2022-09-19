@@ -2,7 +2,7 @@ package org.zerock.mapper;
 
 import org.apache.ibatis.annotations.Select;
 
-// Mapper는 SQL과 그에 대한 처리를 지정하는 역능
+// Mapper는 SQL과 그에 대한 처리를 지정하는 역할
 public interface TimeMapper {
 
     @Select("SELECT sysdate FROM dual")

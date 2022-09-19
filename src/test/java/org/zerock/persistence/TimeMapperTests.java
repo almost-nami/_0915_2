@@ -21,7 +21,7 @@ public class TimeMapperTests {
     @Test
     public void testGetTime(){
         // 실제 동작하는 클래스 이름을 확인할 수 있음
-        // -> 인터페이스로 만들었지만 내부적으로 클래스가 만들어졌음을 확인 가
+        // -> 인터페이스로 만들었지만 내부적으로 클래스가 만들어졌음을 확인 가능
         log.info(timeMapper.getClass().getName());
         log.info(timeMapper.getTime());
     }

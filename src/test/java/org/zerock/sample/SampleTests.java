@@ -21,7 +21,9 @@ import static org.junit.Assert.assertNotNull;
  */
 
 // @RunWith : 테스트 코드가 스프링을 실행하는 역할을 하게 됨
+//      -> 테스트시 필요한 클래스를 지정
 // @ContextConfiguration : 필요한 객체들을 Bean으로 등록
+//      -> locations를 이용해서 문자열로 XML설정파일을 명시하거나 classes를 이용해서 @Configuration이 적용된 클래스를 지정할 수 있음
 // @Log4j : Lombok을 이용해서 로그를 기록하는 Logger를 변수로 생성
 // @Log : static final로 Logger객체가 생성됨
 @RunWith(SpringJUnit4ClassRunner.class)
